@@ -1,0 +1,46 @@
+as It can be seen this comparison was occured between 3+ group so this is the ain resone why we went for ANOVA (called F ) 
+instead of Z or T score 
+
+Compare the means from two or more
+groups to see whether they are so far
+apart that the observed differences
+cannot all reasonably be attributed to
+sampling variability
+
+H0=𝜇(Less than HS) = 𝜇(HS) = 𝜇(Jr Coll) = 𝜇(Bachelor's)=𝜇(Graduate) which means average age of people whithin 5 groups are equal
+F-Value = determines the ratio of between groups variance to groups variance which means (the larger the ratio , the more likely it is that the groups have different means (reject H0 ))
+conditions:
+1. The observations should be independent within and between groups
+   As it can be seen these 5 groups are indepent because everyone was categories accoridng to their lates education status
+2. The observations within each group should be nearly normal
+
+3. The variability across the groups should be about equal
+ the degree of freedome(dfG) for this test is number of groups(5 groups) - 1=4
+ the degree of total (dfT)is total number of observations which is 1160 (after drop Null value from the observation )-1 = 1159
+ so --> F(4,1160)=4.459536 
+ the degree of Error (dfE) is dfT-dfG= 1159-4=1155
+ Sum of squares between groups, SSG which is calculated 4054.648874  
+ sum of squars of Error is 262534.002678   
+ so sum squares of total is SSE+SSG=266588.651
+ Mean Square Error :
+ Mean square error is calculated as sum of squares divided by the degrees of
+freedom SO:
+ MSG=SSG-dfG=4054.648874/4=1013.662219  
+ MSE=SSE/dfE=262534.002678   /1155=227.302167 
+
+Test statistic, F value
+• As we discussed before, the F statistic is the ratio of the between group and
+within group variability so it is ratio between MSG/MSE=1013.662219/227.302167=4.459536
+
+
+p-value is the probability of at least as large a ratio between the “between
+group” and “within group” variability, if in fact the means of all groups are
+equal. It’s calculated as the area under the F curve, with degrees of freedom
+dfG and dfE, above the observed F statistic.
+stats.f(dfG,dfE).sf(f)=stats.f(4,1155).sf(4.459536)=0.001401503417176837
+the P_value is less than 0.05 so reject H0. The data provide convincing evidence that at least one mean is different from but we cannot say which 
+
+conclusion :
+The data provide convincing evidence that the average age in every EducationStatus is different for at least one group
+
+And now in order to answer which means differ we go for t_test_pairwise() 
